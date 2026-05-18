@@ -1,6 +1,5 @@
 """
 SecureFlow — Threat Intelligence Agent
-=========================================
 Enriches vulnerability findings with CVE details, CVSS scores,
 and risk assessments from the NVD database.
 

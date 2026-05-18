@@ -1,6 +1,5 @@
 """
 SecureFlow — Orchestrator (Root Agent)
-========================================
 The root agent that coordinates the entire security pipeline.
 
 Architecture:
@@ -29,10 +28,8 @@ from secureflow.agents.pipeline_auditor import pipeline_auditor
 from secureflow.agents.threat_intel_agent import threat_intel_agent
 from secureflow.agents.remediation_agent import remediation_agent
 
-# ============================================================
 # Stage 1: Parallel Security Scan
 # All 4 scanners run simultaneously on the same MR data
-# ============================================================
 parallel_scan = ParallelAgent(
     name="parallel_security_scan",
     sub_agents=[
@@ -43,17 +40,15 @@ parallel_scan = ParallelAgent(
     ],
 )
 
-# ============================================================
-# Full Pipeline: Scan -> Remediate (sequential)
-# ============================================================
+
 full_pipeline = SequentialAgent(
     name="secureflow_pipeline",
     sub_agents=[parallel_scan, remediation_agent],
 )
 
-# ============================================================
+
 # Root Orchestrator
-# ============================================================
+=
 INSTRUCTION = """You are the SecureFlow orchestrator. You receive GitLab webhook
 events and coordinate a team of security agents to protect the software supply chain.
 

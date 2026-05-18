@@ -1,6 +1,5 @@
 """
 SecureFlow — Secret Hunter Agent
-===================================
 Scans merge request diffs for hardcoded secrets, API keys, tokens,
 and credentials using regex patterns.
 

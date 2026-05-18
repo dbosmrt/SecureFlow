@@ -1,6 +1,5 @@
 """
 SecureFlow — Remediation Agent
-=================================
 Generates fix patches and proposes GitLab actions (MR, issue, comment)
 based on consolidated security findings.
 
