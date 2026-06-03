@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ============================================================
+   Documentation Page — Matches existing glassmorphism theme
+   ============================================================ */
+
+/* Custom cursor */
+.doc-root, .doc-root * {
+  cursor: none !important;
+}
+
+.doc-root {
+  min-height: 100vh;
+  background: #FAFAF8;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1c1917;
+  padding-bottom: 5rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.doc-root ::selection {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.doc-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  padding-top: 6rem; /* space for fixed nav */
+}
+
+.doc-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.doc-hero-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  background: linear-gradient(135deg, #fb923c, #ea580c);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(234, 88, 12, 0.2);
+  animation: heroFloat 3s ease-in-out infinite;
+}
+
+.doc-hero-icon svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+
+.doc-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.doc-hero p {
+  font-size: 1.125rem;
+  color: #78716c;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Content layout with sidebar */
+.doc-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .doc-content-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Sidebar */
+.doc-sidebar {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .doc-sidebar {
+    width: 250px;
+    position: sticky;
+    top: 6rem;
+  }
+}
+
+.doc-sidebar-inner {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(231, 229, 228, 0.6);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.doc-sidebar-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #44403c;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.doc-sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.doc-sidebar-list a {
+  text-decoration: none;
+  color: #57534e;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 200ms;
+  display: block;
+  padding: 0.25rem 0;
+}
+
+.doc-sidebar-list a:hover {
+  color: #ea580c;
+}
+
+/* Content Area */
+.doc-content {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(231, 229, 228, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  border-radius: 1.25rem;
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .doc-content {
+    padding: 3rem;
+  }
+}
+
+.doc-section {
+  margin-bottom: 3rem;
+}
+
+.doc-section h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.doc-section h2 svg {
+  width: 28px;
+  height: 28px;
+  color: #ea580c;
+}
+
+.doc-section h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #292524;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.doc-section p {
+  color: #57534e;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.doc-section code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875rem;
+  background: #f5f5f4;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  color: #c2410c;
+}
+
+/* Dividers */
+.doc-divider {
+  height: 1px;
+  background: #e7e5e4;
+  margin: 2rem 0;
+}
+
+/* Lists */
+.doc-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.doc-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: #44403c;
+  line-height: 1.5;
+}
+
+.doc-list-icon {
+  width: 18px;
+  height: 18px;
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+/* Code Blocks */
+.doc-code-block {
+  background: #1c1917;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid #44403c;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.doc-code-block pre {
+  margin: 0;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #e7e5e4;
+}
+
+/* Alerts */
+.doc-alert {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.doc-alert.info {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e3a8a;
+}
+
+.doc-alert.warning {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+
+/* Grids / Cards */
+.doc-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .doc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.doc-card {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #e7e5e4;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  transition: transform 200ms;
+}
+
+.doc-card:hover {
+  transform: translateY(-2px);
+  border-color: #d6d3d1;
+}
+
+.doc-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.doc-card p {
+  font-size: 0.9rem;
+  color: #57534e;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Steps */
+.doc-step {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.doc-step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffedd5;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  border: 2px solid #fdba74;
+}
+
+.doc-step-content h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1c1917;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.doc-step-content p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* QA section */
+.doc-qa {
+  margin-bottom: 1.5rem;
+}
+
+.doc-qa h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 0.5rem 0;
+}
+
+.doc-qa p {
+  margin: 0;
+}

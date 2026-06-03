@@ -1,0 +1,11 @@
+{
+  "name": "phantom_package",
+  "description": "Eval: MR with non-existent PyPI package",
+  "messages": [
+    {
+      "role": "user",
+      "content": "{\"project_id\": \"test-123\", \"merge_request_iid\": 3, \"changes\": {\"diff\": \"+ pytorch-transformar==1.0.0\"}}"
+    }
+  ],
+  "expected_output": "pytorch-transformar"
+}

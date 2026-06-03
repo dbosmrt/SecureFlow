@@ -1,0 +1,11 @@
+{
+  "name": "vulnerable_deps",
+  "description": "Eval: MR with CVE-2018-18074 in requests",
+  "messages": [
+    {
+      "role": "user",
+      "content": "{\"project_id\": \"test-123\", \"merge_request_iid\": 1, \"changes\": {\"diff\": \"+ requests==2.6.0\"}}"
+    }
+  ],
+  "expected_output": "requests 2.6.0"
+}

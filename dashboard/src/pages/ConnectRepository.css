@@ -1,0 +1,575 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ============================================================
+   Connect Repository Page — Warm Glassmorphism Theme
+   Matches existing Dashboard.css aesthetic
+   ============================================================ */
+
+/* Custom cursor */
+.connect-root, .connect-root * {
+  cursor: none !important;
+}
+
+.connect-root {
+  min-height: 100vh;
+  background: #FAFAF8;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1c1917;
+  padding-bottom: 5rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.connect-root ::selection {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+/* ============================================================
+   Connect Page Layout
+   ============================================================ */
+.connect-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.connect-hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.connect-hero-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  background: linear-gradient(135deg, #fb923c, #ea580c);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(234, 88, 12, 0.2);
+  animation: heroFloat 3s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.connect-hero-icon svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+
+.connect-hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.connect-hero p {
+  font-size: 1rem;
+  color: #78716c;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   Connect Form Card
+   ============================================================ */
+.connect-form-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(231, 229, 228, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.connect-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.connect-form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #44403c;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.connect-form-hint {
+  font-size: 0.75rem;
+  color: #a8a29e;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  margin-left: 0.5rem;
+}
+
+.connect-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.connect-input-wrap svg {
+  position: absolute;
+  left: 1rem;
+  width: 18px;
+  height: 18px;
+  color: #a8a29e;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connect-input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 2.75rem;
+  font-size: 0.95rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  color: #1c1917;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1.5px solid #e7e5e4;
+  border-radius: 0.75rem;
+  outline: none;
+  transition: all 200ms ease;
+}
+
+.connect-input::placeholder {
+  color: #d6d3d1;
+  font-family: 'Inter', sans-serif;
+}
+
+.connect-input:focus {
+  border-color: #fb923c;
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+}
+
+.connect-input.error {
+  border-color: #e11d48;
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+}
+
+.connect-eye-toggle {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: #a8a29e;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 200ms;
+  z-index: 1;
+}
+
+.connect-eye-toggle:hover {
+  color: #57534e;
+}
+
+.connect-eye-toggle svg {
+  position: static;
+  width: 18px;
+  height: 18px;
+  pointer-events: auto;
+}
+
+.connect-field-error {
+  font-size: 0.75rem;
+  color: #e11d48;
+  margin-top: 0.375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ============================================================
+   Connect Button
+   ============================================================ */
+.connect-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #fb923c, #ea580c);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 20px rgba(234, 88, 12, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.connect-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 500ms;
+}
+
+.connect-submit-btn:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.connect-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(234, 88, 12, 0.35);
+}
+
+.connect-submit-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.connect-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
+.connect-submit-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Spinner */
+.connect-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   Status Messages
+   ============================================================ */
+.connect-status {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  animation: slideUp 300ms ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.connect-status.success {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.connect-status.error {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+}
+
+.connect-status svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Connected Projects Table
+   ============================================================ */
+.connect-projects-section {
+  margin-top: 2.5rem;
+}
+
+.connect-projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.connect-projects-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1c1917;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.connect-projects-title svg {
+  width: 20px;
+  height: 20px;
+  color: #10b981;
+}
+
+.connect-projects-count {
+  background: #f5f5f4;
+  color: #57534e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid #e7e5e4;
+}
+
+.connect-projects-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(231, 229, 228, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+.connect-projects-table {
+  width: 100%;
+  text-align: left;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+}
+
+.connect-projects-table thead {
+  background: rgba(250, 250, 249, 0.8);
+  border-bottom: 1px solid #e7e5e4;
+}
+
+.connect-projects-table th {
+  padding: 1rem 1.5rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: #78716c;
+  white-space: nowrap;
+}
+
+.connect-projects-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f5f5f4;
+  vertical-align: middle;
+}
+
+.connect-projects-table tbody tr {
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 150ms;
+}
+
+.connect-projects-table tbody tr:hover {
+  background: rgba(250, 250, 249, 0.5);
+}
+
+.connect-projects-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Project info cell */
+.connect-project-name {
+  font-weight: 700;
+  color: #292524;
+}
+
+.connect-project-namespace {
+  font-size: 0.75rem;
+  color: #78716c;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  margin-top: 0.125rem;
+}
+
+/* Status badges */
+.connect-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid;
+}
+
+.connect-status-badge.connected {
+  background: #ecfdf5;
+  color: #047857;
+  border-color: #a7f3d0;
+}
+
+.connect-status-badge.error {
+  background: #fffbeb;
+  color: #b45309;
+  border-color: #fde68a;
+}
+
+.connect-status-badge.disconnected {
+  background: #f5f5f4;
+  color: #57534e;
+  border-color: #e7e5e4;
+}
+
+.connect-status-badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Disconnect button */
+.connect-disconnect-btn {
+  padding: 0.375rem 0.875rem;
+  background: transparent;
+  color: #78716c;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1px solid #e7e5e4;
+  border-radius: 0.5rem;
+  transition: all 200ms;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.connect-disconnect-btn:hover {
+  color: #be123c;
+  border-color: #fecdd3;
+  background: #fff1f2;
+}
+
+.connect-disconnect-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Empty state */
+.connect-empty {
+  text-align: center;
+  padding: 3rem;
+  color: #a8a29e;
+}
+
+.connect-empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.5;
+}
+
+.connect-empty p {
+  font-size: 0.9rem;
+  color: #78716c;
+}
+
+/* Scan timestamp */
+.connect-scan-time {
+  font-size: 0.75rem;
+  color: #a8a29e;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ============================================================
+   Steps indicator
+   ============================================================ */
+.connect-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.connect-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #a8a29e;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid #e7e5e4;
+  transition: all 300ms;
+}
+
+.connect-step.active {
+  color: #ea580c;
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.connect-step.done {
+  color: #047857;
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.connect-step svg {
+  width: 14px;
+  height: 14px;
+}
+
+.connect-step-divider {
+  width: 24px;
+  height: 1px;
+  background: #d6d3d1;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (min-width: 640px) {
+  .connect-main {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .connect-hero h1 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .connect-main {
+    padding: 3rem 2rem;
+  }
+  
+  .connect-form-card {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .connect-projects-table th:nth-child(3),
+  .connect-projects-table td:nth-child(3) {
+    display: none;
+  }
+  
+  .connect-steps {
+    flex-wrap: wrap;
+  }
+}
