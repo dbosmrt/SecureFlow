@@ -1,6 +1,5 @@
 """
 SecureFlow — Webhook Endpoint
-===============================
 Receives GitLab webhook events, validates the token,
 and enqueues them for processing.
 

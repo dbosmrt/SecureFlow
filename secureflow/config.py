@@ -1,6 +1,5 @@
 """
 SecureFlow — Configuration
-=========================
 Centralized configuration using pydantic-settings BaseSettings.
 Loads from environment variables and .env file automatically.
 Falls back to safe defaults for local development.

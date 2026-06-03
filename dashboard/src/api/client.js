@@ -1,6 +1,5 @@
 /**
  * SecureFlow Dashboard — API Client
- * ===================================
  * Lightweight fetch wrapper for the FastAPI backend.
  * No external dependencies required — uses native fetch.
  *

@@ -1,5 +1,5 @@
 """
-SecureFlow — Orchestrator (Root Agent)
+SecureFlow: Orchestrator (Root Agent)
 The root agent that coordinates the entire security pipeline.
 
 Architecture:

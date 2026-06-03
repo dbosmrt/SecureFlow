@@ -1,6 +1,5 @@
 """
 SecureFlow — Approvals API Endpoint (HITL Queue)
-==================================================
 Manage the Human-in-the-Loop approval queue.
 Allows operators to approve or reject agent-proposed actions
 before they execute on GitLab.

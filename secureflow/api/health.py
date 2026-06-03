@@ -1,6 +1,5 @@
 """
 SecureFlow — Health Check Endpoint
-====================================
 Cloud Run readiness/liveness probe.
 """
 from fastapi import APIRouter

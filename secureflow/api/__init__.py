@@ -1,6 +1,5 @@
 """
 SecureFlow — API Package
-=========================
 FastAPI application with endpoints:
 - /health: Cloud Run health check
 - /webhook/gitlab: Receives GitLab webhook events

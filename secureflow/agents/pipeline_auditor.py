@@ -1,5 +1,5 @@
 """
-SecureFlow — Pipeline Auditor Agent
+SecureFlow: Pipeline Auditor Agent
 
 Audits .gitlab-ci.yml pipeline configurations for security
 anti-patterns and SLSA compliance.

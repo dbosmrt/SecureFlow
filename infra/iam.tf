@@ -1,7 +1,5 @@
-# ============================================================
-#  SecureFlow — IAM Configuration
+# SecureFlow — IAM Configuration
 #  Service account + least-privilege role bindings.
-# ============================================================
 
 # --- Service Account ---
 resource "google_service_account" "secureflow_sa" {

@@ -1,6 +1,5 @@
 """
 SecureFlow — FastAPI Application
-==================================
 Main entry point for the SecureFlow API server.
 
 Mounts all route modules:
@@ -21,9 +20,9 @@ from secureflow.api.webhook import router as webhook_router
 from secureflow.api.findings import router as findings_router
 from secureflow.api.approvals import router as approvals_router
 
-# ============================================================
+
 # Configure logging
-# ============================================================
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
@@ -31,9 +30,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ============================================================
+
 # Create FastAPI app
-# ============================================================
+
 app = FastAPI(
     title="SecureFlow API",
     description=(
@@ -45,9 +44,9 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
-# ============================================================
+
 # CORS middleware (allows dashboard to call API)
-# ============================================================
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -60,9 +59,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ============================================================
+
 # Mount routers
-# ============================================================
+
 # Health check at root level
 app.include_router(health_router)
 
@@ -77,9 +76,9 @@ api_router.include_router(approvals_router)
 app.include_router(api_router)
 
 
-# ============================================================
+
 # Root endpoint
-# ============================================================
+
 @app.get("/")
 async def root():
     """Root endpoint with API info."""
@@ -91,9 +90,9 @@ async def root():
     }
 
 
-# ============================================================
+
 # Startup event
-# ============================================================
+
 @app.on_event("startup")
 async def startup_event():
     logger.info("SecureFlow API starting up...")

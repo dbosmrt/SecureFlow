@@ -1,6 +1,5 @@
 """
 SecureFlow — Agents Package
-============================
 Contains all ADK LlmAgent definitions:
 - orchestrator: Root agent coordinating the pipeline
 - dependency_scanner: Scans for vulnerable packages

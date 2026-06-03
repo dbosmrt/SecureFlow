@@ -1,7 +1,5 @@
-# ============================================================
-#  SecureFlow — Main Terraform Configuration
+# SecureFlow — Main Terraform Configuration
 #  Cloud Run v2 service + Artifact Registry + API enablement
-# ============================================================
 
 terraform {
   required_version = ">= 1.5"
@@ -19,9 +17,8 @@ provider "google" {
   region  = var.region
 }
 
-# ============================================================
-# Enable required GCP APIs
-# ============================================================
+#  Enable required GCP APIs
+
 resource "google_project_service" "apis" {
   for_each = toset([
     "run.googleapis.com",
@@ -37,9 +34,8 @@ resource "google_project_service" "apis" {
   disable_on_destroy = false
 }
 
-# ============================================================
-# Artifact Registry (replaces deprecated GCR)
-# ============================================================
+#  Artifact Registry (replaces deprecated GCR)
+
 resource "google_artifact_registry_repository" "secureflow" {
   location      = var.region
   repository_id = "secureflow"
@@ -49,9 +45,8 @@ resource "google_artifact_registry_repository" "secureflow" {
   depends_on = [google_project_service.apis]
 }
 
-# ============================================================
-# Cloud Run v2 Service
-# ============================================================
+#  Cloud Run v2 Service
+
 resource "google_cloud_run_v2_service" "secureflow_api" {
   name     = "secureflow-api"
   location = var.region
@@ -142,9 +137,8 @@ resource "google_cloud_run_v2_service" "secureflow_api" {
   ]
 }
 
-# ============================================================
-# Output the Cloud Run URL
-# ============================================================
+#  Output the Cloud Run URL
+
 output "service_url" {
   description = "The URL of the deployed SecureFlow API"
   value       = google_cloud_run_v2_service.secureflow_api.uri

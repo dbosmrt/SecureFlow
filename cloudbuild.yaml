@@ -1,0 +1,73 @@
+# ============================================================
+#  SecureFlow — Cloud Build CI/CD Pipeline
+#  Triggered on push to main branch.
+#
+#  Steps:
+#    1. Build container image
+#    2. Push to Artifact Registry (replaces deprecated GCR)
+#    3. Deploy to Cloud Run
+#
+#  Prerequisites:
+#    - Artifact Registry repo 'secureflow' created in your region
+#    - Cloud Build service account has Cloud Run Admin role
+#    - Secrets stored in Secret Manager
+# ============================================================
+
+steps:
+  # Step 1: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/secureflow/api:${SHORT_SHA}'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/secureflow/api:latest'
+      - '.'
+
+  # Step 2: Push to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '--all-tags'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/secureflow/api'
+
+  # Step 3: Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'secureflow-api'
+      - '--image'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/secureflow/api:${SHORT_SHA}'
+      - '--region'
+      - '${_REGION}'
+      - '--platform'
+      - 'managed'
+      - '--service-account'
+      - 'secureflow@${PROJECT_ID}.iam.gserviceaccount.com'
+      - '--set-secrets'
+      - 'GITLAB_TOKEN=gitlab_token:latest,GITLAB_WEBHOOK_SECRET=gitlab_webhook_secret:latest,GOOGLE_API_KEY=google_api_key:latest'
+      - '--min-instances'
+      - '0'
+      - '--max-instances'
+      - '3'
+      - '--memory'
+      - '1Gi'
+      - '--cpu'
+      - '1'
+      - '--timeout'
+      - '300'
+      - '--no-allow-unauthenticated'
+
+# Store built images
+images:
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/secureflow/api:${SHORT_SHA}'
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/secureflow/api:latest'
+
+# Substitution variables (override with --substitutions)
+substitutions:
+  _REGION: us-central1
+
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -1,7 +1,6 @@
-# ============================================================
-#  SecureFlow — Pub/Sub Configuration
+# SecureFlow — Pub/Sub Configuration
 #  Event topic + worker subscription with dead letter handling.
-# ============================================================
+
 
 # --- Main event topic ---
 resource "google_pubsub_topic" "secureflow_events" {

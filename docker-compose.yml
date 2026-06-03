@@ -1,0 +1,44 @@
+# ============================================================
+#  SecureFlow — Local Development Stack
+#  Runs the API server with hot-reload and optional subscriber.
+#
+#  Usage:
+#    docker-compose up          # API only
+#    docker-compose --profile worker up  # API + Pub/Sub subscriber
+# ============================================================
+
+services:
+  # --- FastAPI server ---
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - LOG_LEVEL=DEBUG
+      - PORT=8000
+    env_file:
+      - .env
+    volumes:
+      - ./secureflow:/app/secureflow  # Hot-reload source
+    command: uvicorn secureflow.api.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "python", "-c", "import httpx; r = httpx.get('http://localhost:8000/health'); assert r.status_code == 200"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # --- Pub/Sub subscriber worker (optional, needs GCP credentials) ---
+  subscriber:
+    build: .
+    profiles: ["worker"]
+    environment:
+      - ENVIRONMENT=production
+    env_file:
+      - .env
+    volumes:
+      - ./secureflow:/app/secureflow
+    command: python -m secureflow.pubsub.subscriber
+    depends_on:
+      api:
+        condition: service_healthy

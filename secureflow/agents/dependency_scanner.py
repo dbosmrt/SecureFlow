@@ -1,5 +1,5 @@
 """
-SecureFlow — Dependency Scanner Agent
+SecureFlow : Dependency Scanner Agent
 Scans merge request diffs for vulnerable or phantom dependencies.
 
 Tools:

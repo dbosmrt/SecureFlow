@@ -1,7 +1,5 @@
-# ============================================================
-#  SecureFlow — Terraform Variables
+# SecureFlow — Terraform Variables
 #  All configurable parameters for the GCP infrastructure.
-# ============================================================
 
 variable "project_id" {
   description = "The Google Cloud Project ID"

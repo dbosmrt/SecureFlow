@@ -1,0 +1,44 @@
+
+#  SecureFlow — Docker Ignore
+#  Excludes dev artifacts from the container image.
+
+
+# Version control
+.git
+.gitignore
+
+# Python artifacts
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+.eggs
+dist
+build
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Testing
+tests/
+evals/
+demo/
+
+# Infrastructure (not needed in container)
+infra/
+docs/
+
+# Dashboard source (built separately in multi-stage)
+dashboard/node_modules
+
+# OS files
+.DS_Store
+Thumbs.db

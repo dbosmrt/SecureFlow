@@ -1,7 +1,5 @@
-# ============================================================
 #  SecureFlow — Secret Manager Configuration
 #  All sensitive values stored as managed secrets.
-# ============================================================
 
 resource "google_secret_manager_secret" "gitlab_token" {
   secret_id = "gitlab_token"

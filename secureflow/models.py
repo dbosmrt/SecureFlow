@@ -1,6 +1,6 @@
 """
 SecureFlow — Data Models
-========================
+
 Core data structures used across the entire system.
 Defined per Section 7 of the master prompt specification.
 
@@ -20,9 +20,8 @@ from typing import Optional
 from pydantic import BaseModel
 
 
-# ============================================================
 # 7.1 — Finding (core security finding)
-# ============================================================
+
 @dataclass
 class Finding:
     """
@@ -89,9 +88,8 @@ class Finding:
         }
 
 
-# ============================================================
+
 # 7.2 — Audit Log Entry
-# ============================================================
 @dataclass
 class AuditLogEntry:
     """
@@ -133,9 +131,9 @@ class AuditLogEntry:
         }
 
 
-# ============================================================
+
 # 7.3 — Approval Action (HITL queue)
-# ============================================================
+
 @dataclass
 class ApprovalAction:
     """
@@ -177,9 +175,9 @@ class ApprovalAction:
         }
 
 
-# ============================================================
+
 # 7.4 — GitLab Webhook Payload (Pydantic for FastAPI validation)
-# ============================================================
+
 class GitLabWebhookPayload(BaseModel):
     """
     Pydantic model for validating incoming GitLab webhook payloads.

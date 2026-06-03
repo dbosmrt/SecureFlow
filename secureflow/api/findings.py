@@ -1,6 +1,5 @@
 """
 SecureFlow — Findings API Endpoint
-=====================================
 Query, filter, and retrieve security findings.
 """
 import logging

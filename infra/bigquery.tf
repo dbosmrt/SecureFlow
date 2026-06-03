@@ -1,4 +1,4 @@
-# ============================================================
+
 #  SecureFlow — BigQuery Configuration
 #  Dataset + 3 tables matching the Python data models exactly.
 #
@@ -6,7 +6,7 @@
 #    findings       — Security findings from scanner agents
 #    audit_log      — Every agent action for compliance
 #    approval_queue — HITL pending/approved/rejected actions
-# ============================================================
+
 
 resource "google_bigquery_dataset" "secureflow" {
   dataset_id  = "secureflow"
